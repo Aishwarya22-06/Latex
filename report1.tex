@@ -1,0 +1,439 @@
+\documentclass[12 pt]{scrartcl}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{url}
+\usepackage[round]{natbib}
+\usepackage{color}
+\usepackage[defaultlines=2,all]{nowidow}
+\usepackage{caption}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\setlength\parindent{0pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+
+\newcommand{\red}{\textcolor{red}}
+
+
+\begin{document}
+	\pagenumbering{Roman}	
+	\begin{titlepage}
+		\centering
+		{\scshape\LARGE TU Dortmund \par}
+		\vspace{1cm}
+		{\scshape\Large Introductory Case Studies \par}
+		\vspace{2cm}
+		{\huge\bfseries Project {1}: {Descriptive analysis of demographic data}\par}
+		\vspace{2cm}
+		{\Large Lecturers:\\
+			Prof.\ Dr.\ Jörg Rahnenführer\\
+			Dr.\ Franziska Kappenberg\ \par}
+		\vspace{1cm}
+		{\Large Author: {Aishwarya Dinni} \par}
+		\vspace{0.5 cm}
+		{\Large Group number: {16}\par}
+		\vspace{0.5 cm}
+		{\Large Group members: {Aishwarya Dinni, Aijaz Ahmed Afzal, Samanvita Chormalle , Yat Chun Fung}}
+		\vfill
+		{\large \today\par}
+	\end{titlepage}
+	
+	
+	\tableofcontents
+	
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\section{Introduction}
+	
+	Demographic data is a type of data that is statistically socio-economic in nature. Demographic analysis is the study of a population based on factors such as age, race, and sex. Governments and other organizations use demographics to learn more about the population's characteristics for many purposes.
+	Demographic studies help us to understand existing trends and evolution, present distribution, and future implications of the social, economic, cultural, and political behavior within	the population of an area. This is the key for public policy analysis, disaster management, and formulating welfare and developmental plans for a country.
+	This case study analysis the demographic data provided by the International Data Base (IDB) of the U.S. Census Bureau using exploratory and descriptive methods.
+	This database contains data such as total population, population with respect to age, sex, and also demographic characteristics such as fertility, mortality, and migration. The data is collected from many sources such as information from state institutions, censuses, surveys or administrative records, and also the estimates and projections by the U.S. Census Bureau.
+	The main focus of this analysis is to use explorative and descriptive methods to analyze the demographic data, mainly the mortality and fertility rate among men and women, spread throughout various regions across the world between 2001 and 2021.
+	
+	In this project, the data comparison is done using graphical methods, such as bar graph, boxplot, histogram, heat map, scatter plot, and also statistical measures like mean, median, variance, correlation.
+	The main factors explored are:
+	\begin{itemize}
+		\item The comparison of life expectancy of females against that of males,
+		\item Relationship between the life expectancy and the fertility rate and
+		\item Changes in above mentioned features over the years and across different given regions.
+	\end{itemize}
+	
+	Section 2, the problem statement consists of an illustration of the data set and the concerns examined. Whereas, section 3  includes briefs on the statistical methods such as mean, median, etc., and graphical methods including histogram, bar graph, and many others involved in this study. At last Section 4 includes the observations, summary, and conclusions on analyzing this data. 
+	
+	
+	
+	\section{Problem statement}
+	
+	\subsection{Data set description}
+	
+	The motive of this report is to analyze the given data set [taken from the International Data Base (IDB) of the U.S. Census Bureau(2021)]. The database contains accurate demographic measures and characteristics including population by sex and age, total population and fertility, mortality, migration for many countries respectively.
+	
+	As earlier mentioned in the introduction, data collected from various sources is documented with cohort-component methodology. In this method, the components of population change (fertility, mortality, and net migration) are projected separately for each birth cohort (persons born in a given year).
+	
+	The variables involved in this analysis are as follows:
+	\begin{itemize}
+		\item \textbf{Country.Name:} (Nominal data type) - This variable describes the 228 countries that are found in this data set. 
+		
+		\item \textbf{Subregion:} (Nominal data type) - The above mentioned 228 countries are geographically categorized into 21 subregions.
+		
+		\item \textbf{Region:} (Nominal data type) - The  contients/regions- Africa, Americas, Asia, Europe,	Oceania are given by the variable "RegionName".  
+		
+		\item \textbf{Year:} (Numeric data type) - As the considered data, in this case, is just for the years 2001 and 2021.
+		
+		\item \textbf{Life.Expectancy..Both.Sexes:} (Numeric data type) - displays the average number of years people are expected to live if they were born in the same year and assuming that mortality remains unchanged at each age in the future..
+		
+		\item \textbf{Life.Expectancy..Males:} (Numeric data type) - Life expectancy of males is given by this variable.
+		
+		\item \textbf{Life.Expectancy..Females:} (Numeric data type) - gives Life expectancy of females
+		
+		\item \textbf{Infant.Mortality.Rate..Both.Sexes} (Numeric data type) - The number of infants dying before reaching one year of age, per 1,000 live births in a given year.
+		
+		\item Note: Years are used to measure life expectancy.
+		
+	\end{itemize}
+	
+	Note: In the given data seven countries including Libya, Puerto Rico, South Sudan, Sudan, Syria, United States have missing values for the year 2001. These records are not considered in this analysis.
+	
+	
+	
+	\subsection{Objectives}
+	The aim of this project is to execute a descriptive analysis of the census data. The data is analyzed using various statistical methods such as central tendency, spread, and some graphical representation methods. 
+	
+	The initial analysis is done using the data for the year 2021. Histograms represent the frequency distribution of the variable. Univariate analysis is done on both the sexes for fertility rate and life expectancy, then the outcome is compared. The correlation matrix is used to assess the bivariate correlation between the variables and then it is visualized using pairwise plots and heat maps. Across the subregions, variability within continuous numerical data is calculated and then is visualized and is analyzed using box plots.
+	
+	Homogeneity within the subregions and heterogeneity between different subregions are determined for all the individual variable values. Ultimately, the changes in the values of the variables from 2001 to 2021 are examined and the trend is expressed using scatter plots.
+	
+	
+	\section{Statistical methods}
+	This statistical methods section includes many statistical measures and graphical methods. Later these are used for analyzing data set according to the issues examined. These models and methods are examined based on their attributes and assumptions. Initial examination of the given data in the csv file is done using Microsoft Excel(Version 2010) and this is done in order to understand the variables and their properties. For all calculations and visualizations, Python (Version 3.7.3) language is scripted with Jupyter Notebook (Version 6.4.5) launched using the software - Anaconda Navigator (\cite{python}). The packages utilized are pandas (\cite{pandas}), numpy (\cite{numpy}), matplotlib.pyplot, matplotlib.lines (\cite{matplotlib}) and seaborn (\cite{seaborn}).
+	
+	
+	
+	\subsection{Statistical measures}
+	\subsubsection{Measures of central tendency}
+	
+	Measure of central tendency is a typical value for a sample. It may also be called a center or location of the distribution. Few of the common measures of central tendency are the arithmetic mean, the median, and the mode among many other. These measures can be defined as follows:
+	
+	
+	\textbf{Arithmetic mean:} It is also called as "mean" or "average" and is usually denoted as  $ {\bar {x}} $. This can be defined as sum of all the observations (${x_{1}+x_{2}+\cdots +x_{n}}$) divided by number of observations ($n$) (\cite{text}). The formula for arithmetic mean of a variable x is -
+	\begin{equation*}
+		{\displaystyle {\bar {x}}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}.
+	\end{equation*}
+	
+	
+	
+	\textbf{Median:} In simple terms median is the middle value in a ordered set of data. It separates the higher half from the lower half of the data set (\cite{text}).  For a sample $x_{1},...,x_{n} $ of size n arranged in ascending order, the formula for calculating the median is
+	\begin{equation*}
+		\tilde {x} =
+		\begin{cases}
+			{\frac{x_{(n+1)}}{2}} & \text{- If n is an odd number}\\
+			{\frac{x_{(\frac{n}{2})}+x_{(\frac{n}{2})+1}}{2}} & \text{- If 	n is an even number}
+		\end{cases}
+	\end{equation*}
+	
+	
+	
+	
+	\subsubsection{Measures of variability}
+	\begin{itemize}
+		\item \textbf{Variance:} The term variance denoted by $s^2$ or $\sigma^2$ refers to a statistical of dispersion in a data set, to be specific variance determines how far each number in the set is from the average (mean), and thus from every other number in the set (\cite{Christ}). Considering a sample of size n with observations $x_{1},...,x_{n} $, and $\bar{x}$ being the mean value of all observations. the variance is calculated as: 
+		\begin{equation*}
+			\sigma^2 = \frac{\sum _{i=1}^{n} (x_i - \bar{x})^2}{n - 1}.
+		\end{equation*}
+		
+		\item \textbf{Standard Deviation:} is simply the square root of variance $\sqrt {\sigma^{2}} $. A standard deviation with a low value indicates that the values tend to be close to the mean of the set, while a high standard deviation indicates that the values are spread out over a wider range.
+		
+		\begin{equation*}
+			\sigma={\sqrt {\frac {\sum _{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}}}.
+		\end{equation*}
+		
+	\end{itemize}
+	(\cite{Christ}).
+	
+	\subsubsection{Pearson correlation coefficient} 
+	Pearson correlation coefficient is also called as bivariate correlation and is denoted by $r$, it can be defined as a measure of linear correlation between two continuous variables. Correlation defines the direction and strength of a linear relationship that exists between pair of variables.(\cite{Christ}) In the Pearson correlation coefficient, the results values are always between -1 and 1.
+	\begin{itemize}
+		\item -1 and values closer to -1 show that there is a negative correlation between the variables,
+		\item 0 denoting that there is no correlation. There might still be a relation, but not in terms of a positive or negative correlation,
+		\item +1 and values closer to +1 depicts that there is a strong positive correlation,
+		\item Considering two continuous random variables $x$ and $y$, which have samples- $x_{1},...,x_{n} $ and $y_{1},...,y_{n} $, mean - $\bar{x}$ and $\bar{y}$ respectively with sample size $n$, the correlation coefficient $r$ is defined as
+	\end{itemize}
+	\begin{equation*}					           
+		r=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sqrt {\sum _{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2} \sum _{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}}}.
+	\end{equation*}
+	
+	
+	
+	\subsubsection{Range, quartile and inter-quartile range}
+	\begin{itemize}
+		\item \textbf{Range:} The range of a set of data is the difference between the maximum and minimum values. Range $R=x_{max}-x_{min}$. (\cite{Christ})
+		
+		
+		\item \textbf{Quartile:} Based on values of the data, the observations are divided into four intervals and how they compare to the total set of observations. Assuming that the set of observations are arranged in their ascending order, the quartiles are represented as-
+		
+		
+		\begin{itemize}
+			\item First Quartile: also called as lowest quartile, is 	the $25^{th}$ quartile, meaning that $ 25\% $ of the data falls below 	this quartile.
+			\begin{equation*}
+				Q1 = (\frac{(n + 1)}{4})^{th} \text{value}
+			\end{equation*}	
+			\item Second Quartile (or the median), is 	the $50^{th}$ quartile, meaning that $ 50\% $ of the data falls below 	this quartile.
+			\begin{equation*}
+				Q2 = (\frac{(n + 1)}{2})^{th} \text{value}
+			\end{equation*}
+			\item Third Quartile, also called as lower quartile, is 	the $75^{th}$ quartile, meaning that $ 75\% $ of the data falls below 	this quartile.
+			\begin{equation*}
+				Q3 = (\frac{3(n + 1)}{4})^{th} \text{value}.
+			\end{equation*}
+			\item Note: If $(\frac{(n + 1)}{2})$ is not an integer then the result is rounded 
+		\end{itemize}
+		
+		
+		
+		
+		\item \textbf{Interquartile Range:} Other names for Interquartile Range are midspread, middle 50\%, or H‑spread.The interquartile range is defined as the difference between the $75^{th}$ and $25^{th}$ quartiles i.e. $IQR= Q_{3}-Q_{1}$. This gives us 50\% of the observations that lie in the range of middle half of a data. 	(\cite{text}) 
+	\end{itemize}
+	
+	\subsection{Statistical plots}
+	
+	Statistical plots represent the statistical analysis of the data set. Bar graphs, histograms, box plots, scatter plots are a few of the statistical plots among many others.
+	
+	\subsubsection{Histograms} 
+	A histogram is a graphical plot that represents the distribution of the numerical data. It illustrates the count or frequency of defined values of a univariate feature. The observed variable values are plotted on the x-axis and their counts are plotted on the y-axis. The frequency of each value is represented by the height of each respective bin (\cite{text}).
+	
+	\subsubsection{Box plots}
+	A boxplot is a graphical method in which the quartiles depict their groups of numerical data. Sometimes it is also termed as box-and-whisker plot and box-and-whisker diagram as they may also have lines extending from the boxes are called whiskers, which indicates variability outside the upper and lower quartiles. The Data points plotted outside the whiskers are known as outliers.
+	
+	A boxplot is considered to be a standardized way of representing the dataset based on a five-number summary: the minimum, the maximum, the sample median, and the first and third quartiles. The interquartile range is determined by the length of the box, and the median is determined by the line in the middle of the box (\cite{Christ}).
+	
+	
+	\subsubsection{Scatter Plot}
+	It is also called a scatterplot, scatter graph, scatter chart, scattergram, or scatter diagram. A scatter plot is a type of mathematical diagram or plot that uses Cartesian coordinates to represent values for typically two quantitative variables for a set of data. The points can also be coded  (color/shape/size) to differentiate multiple variables. In simple terms, this graph uses dots to represent values for two different numeric variables (\cite{Howard}).
+	
+	\subsubsection{Pairwise Plot}
+	Pairwise plots, also termed matrix scatter plots, are used to represent the correlation (relationship) between pair of variables. This plot is used to generate a plot matrix. The set of variables considered are the same in both the horizontal and vertical axes. For each subplot in the matrix, the values of the variables in the x-axis are plotted against the values of the variable in the y-axis respectively.
+	
+	
+	
+	
+	
+	
+	
+	\section{Statistical analysis}
+	
+	This section includes the detailed analysis of the given data set using the statistical methods mentioned earlier in the project.
+	
+	\subsection{ Univariate analysis}
+	
+	Univariate analysis is the simplest form of analyzing data. It takes data, summarizes that data, and finds patterns in the data. The univariate frequency distribution for each of the continuous variables such as LEBS,LEM, LEF and IMRBS from the year 2021 is analyzed in this section. Life expectancy across all the regions and sub-regions is visualized for males against females.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=.9\textwidth]{hist.pdf}
+		\caption{ Frequency distribution histograms for different variables}
+		\label{fig:Histogram}
+	\end{figure}
+	
+	The given Figure \ref{fig:Histogram} shows the histograms for the frequency distribution of the variables: Infant.Mortality.Rate..Both.Sexes, Life.Expectancy..Both.Sexes, Life.Expectancy..Males, Life.Expectancy..Females and further, the female life expectancies is subtracted from the male life expectancies and the frequency distribution of this difference is also plotted as a histogram with the title Life.Expectancy..Differences.
+	
+	The frequency distribution for the first chart with the title Infant.Mortality.Rate..Both.Sexes, is skewed to the left and for the rest of the charts, it is skewed to its right. In the first graph, the total fertility rate is centered between 1 and 5. The maximum is at 144.77 for Afghanistan country. One can also observe that in the second graph, life expectancy for both the sexes is centered in between 75.0 and 78.0 and Monaco has 89.4, the maximal value among the given data.??????????????????????check the values ??????????????????
+	
+	The total life expectancy for males is centered between 74.0 and 76.0, which is less than that of both the sexes. the maximum years lived by males is 85.5 ??????years, which is less than that of both the sexes. On the other hand for females it can be observed that it is centered between 78.0 and 80.0, which is more than that of the males and is similar to that of both the sexes. The value of total life expectancy of females peaks at around 85?????. This again, more than the maximum value for males and is also \red{more than total life expectancy for both the sexes}.
+	
+	The last histogram graph depicts the plotted values for the difference between female life expectancies and male life expectancies. As it can be noticed that most of the values are negative, which means the life expectancy of females is comparatively higher. Most differences here are found between -4.0 and -4.5. This implies that in most countries, the life expectancy of females is about four to four and half years higher than that of males.
+	
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{subregionn.pdf}
+		\caption{Bar chart of life expectancy at birth for males and females}
+		\label{fig:subregionbargraph}
+	\end{figure}
+	
+	To analyze more about life expectancy difference between male and female, a grouped bar chart is prepared. Figure~\ref{fig:regionbargraph} displays, the life expectancies of males and female grouped together based on region and Figure~\ref{fig:subregionbargraph} shows the life expectancies of males and females are grouped based on sub-region.  Both the graphs have two bars, the blue-colored bar represents the life expectancy at birth in years for females and the other for males.
+	
+	Analyzing both the grouped bar graphs, it is sure that the life expectancy of females is higher than that of males within all the subregions and also within all the regions.
+	
+	\subsection{Bivariate analysis}
+	
+	This section consists of the correlation between the variables. The bivariate analysis determines the relationship between the variables and this is done using the tables and pairplots.
+	\red{ check if the table is right!}
+	\begin{table}[ht]
+		\centering
+		\captionabove{Correlation matrix for the variables.}
+		\label{tab:corr_matrix}
+		\begin{tabular}{l|rrrr}
+			{} &  IMRBS &  LEBS & LEM &  LEF \\
+			\hline
+			IIMRBS &       1.000 &   -0.905 &   -0.883 &   -0.913 \\
+			LEBS   &      -0.905 &    1.000 &    0.993 &   0.993 \\
+			LEM    &      -0.883 &    0.993 &    1.000 &    0.971 \\
+			LEF    &      -0.913 &    0.993 &    0.971 &   1.000 \\
+			
+		\end{tabular}
+	\end{table}
+	
+	The abbreviations used in the table are as follows: IMRBS- Infant.Mortality.Rate..Both.Sexes, LEBS- Life.Expectancy..Both.Sexes, LEM- Life.expectancy..Males, LEF- Life.Expectancy..Females. The table \refeq{tab:corr_matrix} shows the correlation coefficients for every pair of continuous numeric variables and this can be plotted in scatter plots as given in the figure \ref{fig:pairplot}.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{corrmatrix.pdf}
+		\caption{Correlation matrix for the variables}
+		\label{fig:pairplot}
+	\end{figure}
+	
+	Analyzing the table \refeq{tab:corr_matrix} and the figure \ref{fig:pairplot} 
+	we can determine that there's a \red{positive correlation of 0.97 that exists between the male and female life expectancy. As we know that Positive r values indicate a positive correlation, where the values of both variables tend to increase together. So, we can conclude that as the life expectancy of females increases the life expectancy of males also increase and vice versa}. 
+	
+	There exists a linear relationship between the life expectancy of females at birth and the life expectancy of both the sexes correlation \red{0.993 and it remains the same between the life expectancy of males at birth and the life expectancy of both the sexes. Meaning that the higher the life expectancy for both the sexes, the higher is the life expectancy for males and also for females}.  
+	
+	Now comparing the relation between total fertility and three other variables, life.expectancy.both.sexes, life.expectancy.females, life.expectancy.males, we can see the correlation value is\red{ -0.80, -0.77, -0.81 respectively}. As we know that negative correlation values indicate a negative correlation, where the values of one variable tend to increase when the values of the other variable decrease.
+	
+	
+	
+	
+	
+	
+	\subsection{ Variability analysis}
+	
+	This subsection focuses on the variability or the spread of the variables with observations from the year \red{2021}. The median and the variability for each of the variables are plotted using the box plots. The figures \ref{fig:fertilitysubregion}, \ref{fig:lemsubregion} and \ref{fig:lefsubregion} have lines extending from the boxes, these are called as whiskers. These indicate variability outside the upper and lower quartiles. The Data points (small diamond-shaped points) plotted outside the whiskers are known as outliers.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{IMRBS.pdf}
+		\caption{: Box plot showing variability in total infant mortality rate across the sub-regions
+		}
+		\label{fig:imrbssubregion}
+	\end{figure}
+	
+	In Figure \ref{fig:imrbssubregion} total infant mortality rate is plotted against all the subregions. As one can see the  African subregions display a higher variability in their infant mortality rates. The medians of these sub-regions are spread out within a region, this shows that the total infant mortality rate is heterogeneous between subregions. The subregions of Asia also show higher variability when compared to the other three subregions and comparatively subregions of Oceania and America show minimum variability.The subregions of Europe show minimal variability compared to subregions of other regions. 
+	
+	\red{The medians of this subregion are very close by we can say that they are homogeneous within their sub-regions. The lowest fertility rate in the region Africa is 56 belonging to Middle Africa and The highest fertility rate in the region of Europe is 89, South-Eastern Asia.
+	}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{LEM.pdf}
+		\caption{: Box plot showing variability in Life.Expectancy..Male across the sub-regions}
+		\label{fig:lemsubregion}
+	\end{figure}
+	
+	The Figures \ref{fig:lemsubregion}, \ref{fig:lefsubregion} and \ref{fig:lebssubregion} displays variability in life expectancy of males,females and both sexes\red{ respectively} plotted against the sub-regions. As we have already seen that there is a linear relationship between the life expectancy for both the sexes and the life expectancy of males and females. Thus, the box plot for both the sexes is \red{synonymous} with that of the individual sexes.		
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Life.Expectancy..Both.Sexes.pdf}
+		\caption{: Box plot showing variability in Life.Expectancy..Both.Sexes across the sub-regions}
+		\label{fig:lebssubregion}
+	\end{figure}
+	
+	Sub-regions like Northern Africa, Eastern Asia show the highest variability for both males and females and are highly heterogeneous with their sub-regions. This is the same in both sexes' plots as well. On the other hand, Sub-regions like Australia/New Zealand, Western and Northern Europe show very little variability for both males and females and are highly homogeneous with their sub-regions. This is the same in both sexes' plots as well.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{LEF.pdf}
+		\caption{: Box plot showing variability in life.Expectancy..Females across the sub-regions}
+		\label{fig:lefsubregion}
+	\end{figure}
+	
+	\subsection{Trend analysis}
+	The main focus of this section is to collect the information for a longer period and attempt to find a pattern. So, the data from the past 20 years is collected and is analyzed. As mentioned at the start of the project that values for a few countries are missing for the year 2001 are not included in the analysis to avoid inconsistency.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{scatterplotss.pdf}
+		\caption{:Scatter plots showing trend of the variables from the year 2001 to 2021}
+		\label{fig:scatterplots}
+	\end{figure}
+	
+	The figure \ref{fig:scatterplots}, is the scatter plot that displays the values of each variable for the year 2001 which is plotted against the values for the year 2021. As one can see the values for the year 2001 are plotted on the x-axis and the values for the year 2021 are plotted on the y-axis. For each of the plots the identity $f(x)=y$ line is drawn to visualize the trend.
+	
+	For lower infant mortality rates, the values in 2021 are quite close to the values in 2001. For larger infant mortality rates in the year 2001, there seems to be a lower mortality rate for the year 2021.\red{The extreme value of mortality rate in the year 2001 is 144.77 but decreases to 106.75 in 2021, belongs to the country Afghanistan. Likewise, for Mozambique, the mortality rate in 2001 is 123.77 whereas, in 2021, it is around 63.03. To sum up, the total infant mortality	rate displays a decreasing trend from the year 2001 to 2021.}
+	
+	After analyzing the given data and their correlations, we can say that the trend for all the three life expectancy variables seems alike. The values of the life expectancy variables in 2021 are higher than those in 2001. Generally, there is an increase in the overall life expectancy for all the sub-regions and sexes with time, also the values appear to be closer for higher life expectancies. 
+	
+	In all cases Venezuela, Andorra have some of the extreme values. \red{For Venezuela, the year 2001 shows 72.45 and 2021 shows 72.22 for life expectancy for both sexes. The value for life expectancy at birth of males in the year 2001 is 69.6 and in 2021, it is 68.9. Similarly, for females, the life expectancy at birth in 2001 is 75.46 and in 2021, 75.7 and and also for the country Andorra with 85.4 in 2001 and 85.6 in 2021. Thus, there is an slight increase in the overall life expectancy for most of the sub-regions and sexes with time.}
+	
+	\section{Summary}
+	As mentioned earlier in the introduction, the data considered in this project is a subset of the demographic data which is provided by the International Data Base (IDB) of the U.S. Census Bureau using exploratory and descriptive methods. The database consists of factors like population characterized by their age, sex, etc., and also the demographic characteristics such as mortality, migration, etc. The IDB is timely, precise, and is always kept updated for research, program planning, and other decision-making throughout the globe.
+	
+	This project mainly focuses on the Fertility rate and life expectancy between males and females of all the 228 countries, which are grouped into 21 subregions and 5 regions. Examined data is between 2001 and 2021. Graphical and statistical measures were used to analyze the data. It is very important to note that the Fertility rate and life expectancy of both the sexes are closely related. Since the year 2001, the fertility rate has drastically reduced across most of the regions and on the other hand, the life expectancy is increased for both sexes.
+	
+	As per the World Health Organization the life expectancy around the globe has increased by more than 6 years within the span of 2000 and 2019(from 66.8 years to 73.4 years). Along with the life expectancy, the While life expectancy abbreviated as "HALE" has also increased by 8\%. (from 58.3 years to 63.7 years) within the same span. According to the WHO the reason for this increase is due to a decline in mortality rate. \cite{WHO}
+	
+	
+	\newpage
+	\addcontentsline{toc}{section}{Bibliography}
+	\renewcommand\refname{Bibliography} 
+	\bibliographystyle{plainnat}
+	\bibliography{ref}
+	
+	\newpage
+	\appendix 
+	\addsec{Appendix}
+	\subsection*{A \ Additional figures}
+	\addcontentsline{toc}{subsection}{A \hspace*{0.15cm} Additional figures} 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{regionn.pdf}
+		\caption{Bar chart of life expectancy at birth for males and females
+		}
+		\label{fig:regionbargraph}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{heatmap.pdf}
+		\caption{ Heatmap explaining bivariate correlation}
+		\label{fig:scatterplots}
+	\end{figure}
+	
+	\subsection*{B \ Additional tables}
+	\addcontentsline{toc}{subsection}{B \hspace*{0.15cm} Additional tables}
+	
+	\begin{table}[ht]
+		\centering
+		\captionabove{Inter-quartile regions of each variable based on the sub-regions.}
+		\label{tab:correlation}
+		\begin{tabular}{l|rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+			
+			subregion & IMRBS &  LEBS &  LEM &  LEF \\
+			\hline
+			Australia/New Zealand &   0.225 &                        0.280 &                   0.080 &                     0.490 \\
+			Caribbean             &                              5.210 &                        4.180 &                   2.870 &                     4.900 \\
+			Central America       &                              6.512 &                        1.822 &                   2.755 &                     2.670 \\
+			Eastern Africa        &                             12.980 &                        3.840 &                   4.100 &                     3.360 \\
+			Eastern Asia          &                              7.390 &                        7.525 &                   7.767 &                     7.185 \\
+			Eastern Europe        &                              2.910 &                        4.552 &                   5.705 &                     3.497 \\
+			Melanesia             &                             10.250 &                        2.450 &                   2.460 &                     2.590 \\
+			Micronesia            &                             10.700 &                        4.460 &                   5.075 &                     4.420 \\
+			Middle Africa         &                             17.740 &                        2.170 &                   1.690 &                     2.760 \\
+			Northern Africa       &                             16.535 &                        6.655 &                   6.640 &                     6.675 \\
+			Northern America      &                              3.910 &                        1.400 &                   0.650 &                     2.440 \\
+			Northern Europe       &                              1.390 &                        1.267 &                   1.627 &                     1.025 \\
+			Polynesia             &                             10.185 &                        2.750 &                   3.465 &                     2.405 \\
+			South America         &                             11.893 &                        5.828 &                   5.463 &                     5.758 \\
+			South-Central Asia    &                             11.445 &                        4.967 &                   5.007 &                     4.505 \\
+			South-Eastern Asia    &                             23.330 &                        6.930 &                   6.365 &                     7.555 \\
+			Southern Africa       &                             14.380 &                        6.110 &                   6.630 &                     6.040 \\
+			Southern Europe       &                              3.585 &                        4.765 &                   4.970 &                     4.513 \\
+			Western Africa        &                             19.400 &                        7.190 &                   7.520 &                     6.690 \\
+			Western Asia          &                              7.870 &                        3.690 &                   4.375 &                     3.900 \\
+			Western Europe        &                              0.210 &                        0.830 &                   1.000 &                     1.090 \\
+			
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	
+\end{document}
